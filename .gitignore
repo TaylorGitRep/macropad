@@ -1,0 +1,4 @@
+cmd/winres/
+cmd/*.syso
+cmd/*.cmd
+device/lib/
