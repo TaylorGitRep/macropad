@@ -197,10 +197,10 @@ func setup() error {
 	if !general.PathExists(defaultKeybindsPath) {
 		os.MkdirAll(macrosPath, os.ModePerm)
 		keyBinds := []macros_keypress.KeypressStruct{
-			{KeyNum: "0", Keypress: "num-"}, {KeyNum: "1", Keypress: "num+"}, {KeyNum: "2", Keypress: "backspace"},
-			{KeyNum: "3", Keypress: "num7"}, {KeyNum: "4", Keypress: "num8"}, {KeyNum: "5", Keypress: "num9"},
-			{KeyNum: "6", Keypress: "num4"}, {KeyNum: "7", Keypress: "num5"}, {KeyNum: "8", Keypress: "num6"},
-			{KeyNum: "9", Keypress: "num1"}, {KeyNum: "10", Keypress: "num2"}, {KeyNum: "11", Keypress: "num3"},
+			{KeyNum: "0", Keypress: "num7"}, {KeyNum: "1", Keypress: "num8"}, {KeyNum: "2", Keypress: "num9"},
+			{KeyNum: "3", Keypress: "num4"}, {KeyNum: "4", Keypress: "num5"}, {KeyNum: "5", Keypress: "num6"},
+			{KeyNum: "6", Keypress: "num1"}, {KeyNum: "7", Keypress: "num2"}, {KeyNum: "8", Keypress: "num3"},
+			{KeyNum: "9", Keypress: "backspace"}, {KeyNum: "10", Keypress: "num0"}, {KeyNum: "11", Keypress: "num_enter"},
 		}
 		defPath := fmt.Sprintf("%v/default.json", macrosPath)
 		err := general.WriteStructFile(defPath, keyBinds)
