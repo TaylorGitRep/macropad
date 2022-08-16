@@ -1,4 +1,4 @@
-module macropad
+module github.com/TaylorGitRep/macropad
 
 go 1.19
 

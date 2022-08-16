@@ -3,12 +3,13 @@ package main
 import (
 	_ "embed"
 	"fmt"
-	"macropad/internal/general"
-	macros_keypress "macropad/internal/macros/keypress"
-	serialint "macropad/internal/serial"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/TaylorGitRep/macropad/internal/general"
+	macros_keypress "github.com/TaylorGitRep/macropad/internal/macros/keypress"
+	serialint "github.com/TaylorGitRep/macropad/internal/serial"
 
 	"github.com/getlantern/systray"
 	log "github.com/sirupsen/logrus"

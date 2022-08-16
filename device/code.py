@@ -110,15 +110,21 @@ def getSerial(now):
             for item in data:
                 tones.append(int(item))
 
-
 def setColor(colorArr):
     for i in range(len(colorArr)):
         pixels[i] = colorwheel(colorArr[i])
 
-def readInput(inptype, data):
-    if inptype == "key" and tones:
-        macropad.play_tone(tones[data], 0.1)
-    sendSerial(inptype, data)
+def readInput(inptype, data, pressed=True):
+    msg = data
+    if inptype == "key":
+        pd = "0"
+        if  tones and pressed:
+            macropad.play_tone(tones[data], 0.1)
+        if pressed:
+            pd = "1"
+        msg = "%s-%s" %(data, pd)
+
+    sendSerial(inptype, msg)
 
 def sendHeartbeat(now):
     global hbsendtime
@@ -162,8 +168,7 @@ def getInput():
 
     event = keys.events.get()
     if event:
-        if event.pressed:
-            readInput("key", event.key_number)
+        readInput("key", event.key_number, event.pressed)
 
 def setDefaultMacroPosition():
     pixels.fill([255,255,0])

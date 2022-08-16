@@ -4,7 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"macropad/internal/general"
+	"strings"
+
+	"github.com/TaylorGitRep/macropad/internal/general"
 
 	"github.com/go-vgo/robotgo"
 	log "github.com/sirupsen/logrus"
@@ -12,9 +14,18 @@ import (
 )
 
 func macroKeypress(msg general.CmdStruct, keyarr []KeypressStruct) bool {
+	data := strings.Split(msg.Data, "-")
+	if len(data) != 2 {
+		log.Errorln("invalid keypress input")
+		return false
+	}
 	for _, item := range keyarr {
-		if msg.Data == item.KeyNum {
-			robotgo.KeyTap(item.Keypress)
+		if data[0] == item.KeyNum {
+			if data[1] == "0" {
+				robotgo.KeyUp(item.Keypress)
+			} else if data[1] == "1" {
+				robotgo.KeyDown(item.Keypress)
+			}
 		}
 	}
 	return false
@@ -45,7 +56,7 @@ func getMacroFolder(filepath string) (map[string][]KeypressStruct, error) {
 	for i, file := range files {
 		data, err := getMacro(file)
 		if err != nil {
-			log.Error(err)
+			log.Errorln(err)
 			return nil, err
 		}
 
@@ -68,7 +79,7 @@ func Cmd(port serial.Port, msg general.CmdStruct) bool {
 
 	defaultCombo, err := getMacro(fmt.Sprintf("%v/default.json", macroFolder))
 	if err != nil {
-		log.Error(err.Error())
+		log.Errorln(err.Error())
 		return false
 	}
 
@@ -80,13 +91,13 @@ func Cmd(port serial.Port, msg general.CmdStruct) bool {
 
 	keyCombos["2"], err = getMacroFolder(macroGameFolder)
 	if err != nil {
-		log.Error(err.Error())
+		log.Errorln(err.Error())
 		return false
 	}
 
 	keyCombos["3"], err = getMacroFolder(macroCustomFolder)
 	if err != nil {
-		log.Error(err.Error())
+		log.Errorln(err.Error())
 		return false
 	}
 

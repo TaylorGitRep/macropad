@@ -91,12 +91,12 @@ func PathExists(checkPath string) bool {
 func GetAppStorageFolder() string {
 	var appstorage string
 	if runtime.GOOS == "windows" {
-		appstorage = fmt.Sprintf("%v/macropad/", os.Getenv("localappdata"))
+		appstorage = fmt.Sprintf("%v/TaylorGitRep/macropad/", os.Getenv("localappdata"))
 	} else {
 		dirname, _ := os.UserHomeDir()
-		dirPath := "/.macropad/"
+		dirPath := "/.TaylorGitRep/macropad"
 		if runtime.GOOS == "darwin" {
-			dirPath = "/Library/Application Support/macropad/"
+			dirPath = "/Library/Application Support/TaylorGitRep/macropad/"
 		}
 		appstorage = fmt.Sprintf("%v/%v", dirname, dirPath)
 	}

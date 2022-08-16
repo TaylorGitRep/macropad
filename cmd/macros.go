@@ -1,11 +1,11 @@
 package main
 
 import (
-	"macropad/internal/general"
-	macros_keypress "macropad/internal/macros/keypress"
-	macros_rotary "macropad/internal/macros/rotary"
-	macros_rotary_btn "macropad/internal/macros/rotary_btn"
-	macros_serial "macropad/internal/macros/serial"
+	"github.com/TaylorGitRep/macropad/internal/general"
+	macros_keypress "github.com/TaylorGitRep/macropad/internal/macros/keypress"
+	macros_rotary "github.com/TaylorGitRep/macropad/internal/macros/rotary"
+	macros_rotary_btn "github.com/TaylorGitRep/macropad/internal/macros/rotary_btn"
+	macros_serial "github.com/TaylorGitRep/macropad/internal/macros/serial"
 )
 
 func Cmd(cmd general.CmdStruct) {

@@ -3,8 +3,9 @@ package macros_serial
 import (
 	"errors"
 	"fmt"
-	"macropad/internal/general"
-	serialint "macropad/internal/serial"
+
+	"github.com/TaylorGitRep/macropad/internal/general"
+	serialint "github.com/TaylorGitRep/macropad/internal/serial"
 
 	log "github.com/sirupsen/logrus"
 	"go.bug.st/serial"

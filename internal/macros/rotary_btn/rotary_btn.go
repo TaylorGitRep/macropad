@@ -2,9 +2,10 @@ package macros_rotary
 
 import (
 	"fmt"
-	"macropad/internal/general"
-	serialint "macropad/internal/serial"
 	"strconv"
+
+	"github.com/TaylorGitRep/macropad/internal/general"
+	serialint "github.com/TaylorGitRep/macropad/internal/serial"
 
 	log "github.com/sirupsen/logrus"
 
