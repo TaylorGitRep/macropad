@@ -1,4 +1,3 @@
-cmd/winres/
 cmd/*.syso
 cmd/*.cmd
 cmd/*.exe
